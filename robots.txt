@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://dyme133.github.io/world-coiffure/sitemap.xml
