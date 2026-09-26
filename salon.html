@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="salon">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="G La Touffe">
+  <meta property="og:title" content="Le salon — G La Touffe">
+  <meta property="og:description" content="Les photos et la visite du salon, au 139 rue Loubon à Marseille.">
+  <meta property="og:url" content="https://dyme133.github.io/g-la-touffe/salon.html">
+  <meta property="og:image" content="https://dyme133.github.io/g-la-touffe/assets/logo-glatouffe-transparent.png">
+  <meta property="og:image:width" content="576">
+  <meta property="og:image:height" content="576">
+  <meta property="og:image:alt" content="Logo de G La Touffe, coiffeur et barbier à Marseille">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  <script src="navigation.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#32518a">
+  <meta name="description" content="Découvrez G La Touffe, coiffeur et barbier au 139 rue Loubon à Marseille : photos et visite du salon.">
+  <title>Le salon — G La Touffe</title>
+  <link rel="icon" href="assets/logo-glatouffe-64.png" type="image/png">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="signature-finitions.css"><link rel="stylesheet" href="affiche.css">
+  <link rel="preload" href="assets/fonts/archivo-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script defer src="assets/vendor/gsap-3.13.0.min.js"></script><script defer src="app.js"></script><script defer src="affiche.js"></script>
+</head>
+<body class="salon-page affiche" data-page="salon">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="affiche-header">
+  <a class="affiche-brand" href="index.html" aria-label="G La Touffe, accueil"><img src="assets/logo-glatouffe-transparent.png" srcset="assets/logo-glatouffe-200.png 200w, assets/logo-glatouffe-transparent.png 576w" sizes="(max-width: 370px) 86px, (max-width: 760px) 115px, (max-width: 969px) 155px, (max-width: 1687px) 16vw, 270px" alt="G La Touffe" width="576" height="576"></a>
+  <nav class="page-nav" aria-label="Navigation principale"><a href="salon.html" aria-current="page">Le salon</a><a href="prestations.html">À la carte</a><a href="venir.html">Venir</a></nav>
+</header>
+<main id="contenu" tabindex="-1">
+  <section class="poster-stage salon-poster" aria-labelledby="salon-title">
+    <div class="poster-lead">
+      <h1 class="poster-title" id="salon-title"><span>Le</span><span>salon<span class="title-point">.</span></span></h1>
+      <div class="poster-practical"><span class="double-slash" aria-hidden="true"></span><div><p>139 rue Loubon, Marseille.</p><a class="poster-link" href="#les-photos"><span>Photos &amp; visite</span><svg viewBox="0 0 32 24" aria-hidden="true" fill="none"><path d="M1 12h27M19 3l9 9-9 9" stroke="currentColor" stroke-width="2"/></svg></a></div></div>
+    </div>
+    <div class="poster-picture"><span class="picture-mark cyan-mark" aria-hidden="true"></span><div class="picture-cut"><img src="assets/salon-stations-wide-1920x1080.webp" srcset="assets/salon-stations-960.webp 960w, assets/salon-stations-wide-1920x1080.webp 1920w" sizes="(max-width: 760px) 960px, (max-width: 1150px) 1000px, 1550px" alt="Fauteuils, miroirs lumineux et murs marbrés du salon" width="1920" height="1080" fetchpriority="high"></div><span class="picture-mark yellow-mark" aria-hidden="true"></span></div>
+    <aside class="poster-aside"><p class="aside-trade">Coiffeur<br>Barbier<br>Marseille</p><span class="double-slash small-slash" aria-hidden="true"></span><p class="aside-bottom">Style<br>Confiance<br>Tous les jours</p></aside>
+  </section>
+  <section class="affiche-photos" id="les-photos" tabindex="-1" aria-labelledby="photos-title">
+    <div class="photos-heading"><h2 id="photos-title">À l’intérieur.</h2><a class="poster-link" href="prestations.html"><span>À la carte</span><span aria-hidden="true">↗</span></a></div>
+    <div class="photos-layout"><figure class="affiche-gallery">
+      <div class="photo-mask" aria-busy="false"><img id="salon-photo" src="assets/salon-hero-wide-1920x1080.webp" srcset="assets/salon-hero-384.webp 384w, assets/salon-hero-960.webp 960w, assets/salon-hero-wide-1920x1080.webp 1920w" sizes="(min-width: 900px) 62vw, 92vw" alt="L’allée centrale et les fauteuils du salon G La Touffe" width="1920" height="1080" loading="lazy"></div>
+      <figcaption><div class="photo-choices" hidden role="group" aria-label="Choisir une vue du salon"><button type="button" data-view="hero" aria-pressed="true" aria-controls="salon-photo">L’ensemble</button><button type="button" data-view="stations" aria-pressed="false" aria-controls="salon-photo">Les postes</button><button type="button" data-view="lounge" aria-pressed="false" aria-controls="salon-photo">L’attente</button></div><span class="photo-caption" id="photo-caption" aria-live="polite">Une vue d’ensemble</span><span class="photo-position sr-only">1 / 3</span><noscript><p><a href="assets/salon-stations-wide-1920x1080.webp">Voir les postes de coiffure</a></p></noscript></figcaption>
+    </figure><figure class="affiche-film">
+      <!-- [html-validate-disable-next no-autoplay] -->
+      <video data-preview data-src="assets/visite-du-salon-web.mp4" autoplay muted loop playsinline controls controlslist="nofullscreen noremoteplayback" disablepictureinpicture preload="none" poster="assets/salon-hero-960.webp" width="576" height="1024" aria-label="Visite sans son du salon : postes, miroirs et espace d’attente."><p>La vidéo n’est pas disponible dans ce navigateur.</p></video>
+      <p data-preview-status role="status" hidden>La vidéo n’est pas disponible pour le moment. Les photos restent accessibles.</p><figcaption>Un tour chez G La Touffe.<a class="preview-fallback" data-preview-fallback href="assets/visite-du-salon-web.mp4">Si la lecture ne démarre pas, ouvrir la vidéo.</a></figcaption>
+    </figure></div>
+  </section>
+</main>
+<div class="signature-ribbon" aria-hidden="true"><div class="ribbon-track"><span><b>G La Touffe</b><i></i><b>Coiffure &amp; barbe</b><i></i><b>Marseille</b><i></i><b>G La Touffe</b><i></i><b>Coiffure &amp; barbe</b><i></i><b>Marseille</b><i></i></span><span><b>G La Touffe</b><i></i><b>Coiffure &amp; barbe</b><i></i><b>Marseille</b><i></i><b>G La Touffe</b><i></i><b>Coiffure &amp; barbe</b><i></i><b>Marseille</b><i></i></span></div></div>
+<footer class="site-footer"><a class="footer-home" href="index.html">G La Touffe, accueil</a><a class="ink-link footer-phone" href="tel:+33963045863" aria-label="Appeler le salon au 09 63 04 58 63">09&nbsp;63&nbsp;04&nbsp;58&nbsp;63</a><a class="ink-link social-link" href="https://www.tiktok.com/@glatouffe" target="_blank" rel="noopener noreferrer">TikTok<span class="sr-only"> (nouvel onglet)</span></a><a class="ink-link" href="venir.html">Venir au salon</a></footer>
+</body></html>

@@ -1,0 +1,218 @@
+/* Signature, finition : même identité, interactions et rythmes unifiés. */
+:root { --ease-out: cubic-bezier(.22,1,.36,1); --fast: 180ms; --draw: 360ms; --hover-ink: #9d1629; }
+
+.prestations-page { --red: #844b54; --yellow: #ffe428; --cyan: #69ceec; --hover-ink: #ffe428; color: #ede6df; }
+.prestations-page .service { border-bottom-color: #ede6df40; }
+.prestations-page .service-answer { color: #ede6df; }
+html { overflow-x: clip; }
+body { overflow-x: clip; }
+main { flex: 1; }
+a, button, summary { touch-action: manipulation; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; box-shadow: none; }
+.film-dialog :focus-visible { outline-color: var(--yellow); }
+/* Keyboard marks follow the label, not a large invisible link rectangle. */
+.ink-link:focus-visible, .ribbon-action:focus-visible, .page-nav a:focus-visible,
+.footer-home:focus-visible, .visit-social a:focus-visible, .phone-action:focus-visible,
+.service-call:focus-visible { outline: none; text-decoration: underline double; text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.destination:focus-visible, .service summary:focus-visible { outline: none; }
+.destination:focus-visible .destination-title { overflow: visible; text-decoration: underline double; text-decoration-thickness: 2px; text-underline-offset: .14em; }
+.service summary:focus-visible > span:first-child { text-decoration: underline double; text-decoration-thickness: 2px; text-underline-offset: .16em; }
+.ink-link:focus-visible::after, .ribbon-action:focus-visible::after,
+.page-nav a:focus-visible::before, .page-nav a:focus-visible::after,
+.phone-action:focus-visible::after, .destination:focus-visible .destination-stroke,
+.service summary:focus-visible > span:first-child::after { opacity: 0; }
+@media (forced-colors: active) {
+  :root a:focus-visible, :root button:focus-visible, :root summary:focus-visible { outline: 2px solid Highlight; outline-offset: 5px; }
+}
+button:disabled { cursor: wait; }
+.site-header { padding-block: 16px; }
+.header-end { min-width: 100px; justify-content: flex-end; }
+.header-hours { font-size: 13px; white-space: nowrap; }
+.mini-brand { width: 100px; transition: transform var(--fast) var(--ease-out); }
+.page-nav a, .page-nav a:hover, .page-nav a[aria-current] { font-weight: 700; }
+.page-nav a { padding-inline: 3px; min-width: 44px; justify-content: center; }
+/* Two independent pen strokes, with a coordinated, interruptible drawing. */
+.page-nav a::before, .page-nav a::after,
+.destination-stroke::before, .destination-stroke::after {
+  content: ''; position: absolute; left: 0; width: 100%; height: 2px;
+  background: var(--red); transform-origin: left center;
+  transform: rotate(-1deg) scaleX(0);
+  transition: transform var(--draw) var(--ease-out); pointer-events: none;
+}
+.page-nav a::before { bottom: 6px; }
+.page-nav a::after { bottom: 2px; left: 5%; width: 80%; height: 1px; background: currentColor; transition-delay: 45ms; }
+
+.prestations-page .page-nav a::before { background: var(--silver); }
+.page-nav a:is(:hover,:focus-visible,[aria-current])::before,
+.page-nav a:is(:hover,:focus-visible,[aria-current])::after { transform: rotate(-1deg) scaleX(1); }
+.page-nav a:active { color: var(--hover-ink); }
+.ink-link::after { height: 1px; transform: scaleX(.24); transition: transform 240ms var(--ease-out); }
+.ink-link,.ribbon-action,.page-nav a,.footer-home,.visit-social a {
+  transition: color 240ms ease, transform 320ms var(--ease-out);
+}
+.ink-link:active,.ribbon-action:active,.mini-brand:active { transform: translateY(2px); }
+.page-nav a:focus-visible { outline-offset: 6px; }
+.entrance { min-height: calc(100svh - 262px); padding-bottom: 38px; }
+.brand-world { perspective: 1000px; }
+.brand-rays { opacity: .34; }
+.brand-rays path:nth-child(2) { stroke: var(--cyan); stroke-width: 5px; }
+.brand-mark { width: min(100%, 450px); }
+.brand-location { font-size: 14px; margin-top: 0; }
+.destination-menu { gap: clamp(12px, 2.6vh, 32px); }
+.destination { min-width: 0; width: max-content; max-width: 100%; padding: 12px 0 30px; }
+.destination-title { display: block; overflow: hidden; padding: 0 .04em .1em 0; margin-bottom: -.1em; transition: transform 420ms var(--ease-out), color 240ms ease; }
+.destination-title > span { display: block; }
+.destination-detail { margin-top: 12px; font-size: clamp(15px,1.1vw,18px); }
+.destination-stroke { position: absolute; inset: auto 0 3px; height: 10px; pointer-events: none; }
+.destination-stroke::before { top: 0; height: 3px; transform: rotate(-1deg) scaleX(.18); }
+.destination-stroke::after { top: 6px; left: 3%; width: 86%; background: var(--yellow); transform: rotate(-1deg) scaleX(.12); transition-delay: 55ms; }
+.destination:is(:hover,:focus-visible) .destination-stroke::before,
+.destination:is(:hover,:focus-visible) .destination-stroke::after { transform: rotate(-1deg) scaleX(1); }
+.destination:active .destination-title { transform: translateX(3px); }
+.signature-ribbon { --stripe-red: #bb2628; --stripe-yellow: #ffe428; --stripe-cyan: #69ceec; overflow: hidden; padding-block: 14px; margin-top: 14px; pointer-events: none; }
+.ribbon-track { display: flex; width: max-content; }
+.ribbon-track > span { display: flex; align-items: center; justify-content: space-around; flex-shrink: 0; min-width: 100vw; gap: 28px; padding-right: 28px; }
+.ribbon-track b { font: 700 18px/1.2 Archivo, Arial, sans-serif; letter-spacing: -.035em; }
+.ribbon-track i { --stripe-main: var(--stripe-red); --stripe-second: var(--stripe-yellow); position: relative; flex-shrink: 0; width: 32px; height: 10px; background: transparent; transform: rotate(-32deg); }
+.ribbon-track i::before,.ribbon-track i::after { content: ''; position: absolute; left: 0; width: 100%; height: 4px; background: var(--stripe-main); }
+.ribbon-track i::after { top: 7px; left: 4px; width: 24px; height: 2px; background: var(--stripe-second); }
+.ribbon-track i:nth-of-type(3n+2) { --stripe-main: var(--stripe-yellow); --stripe-second: var(--stripe-cyan); }
+.ribbon-track i:nth-of-type(3n+3) { --stripe-main: var(--stripe-cyan); --stripe-second: var(--stripe-red); }
+html[data-motion=full] .ribbon-track { animation: signature-drift var(--ribbon-duration,32s) linear infinite; animation-delay: var(--ribbon-phase,0s); will-change: transform; }
+html[data-motion=full] .brand-rays { animation: signature-breath 9s ease-in-out infinite alternate; }
+.document-hidden[data-motion=full] .ribbon-track, .document-hidden[data-motion=full] .brand-rays { animation-play-state: paused; }
+@keyframes signature-drift { to { transform: translateX(-50%); } }
+@keyframes signature-breath { to { transform: translate(-50%,-49%) rotate(2deg); } }
+.site-footer { padding-top: 16px; padding-bottom: 20px; gap: 28px; min-height: 80px; }
+.site-footer .video-link { font-size: 14px; }
+
+.service-stage { min-height: calc(100svh - 275px); }
+.service { border-bottom-color: #ffe32c60; }
+.service summary { position: relative; min-height: 88px; transition: color 240ms ease; }
+.service.is-transitioning { overflow: clip; }
+.service[data-expanded=false] .service-symbol::after { transform: rotate(90deg); }
+.service[data-expanded=true] .service-symbol::after { transform: rotate(0); }
+.service summary > span:first-child { position: relative; transition: transform var(--fast) var(--ease-out); }
+.service summary > span:first-child::after { content: ''; position: absolute; left: 0; right: 0; bottom: -7px; height: 2px; background: currentColor; opacity: 0; transform: rotate(-1deg) scaleX(.2); transform-origin: left; transition: transform var(--draw) var(--ease-out), opacity var(--fast) ease; }
+.service summary:hover { color: inherit; }
+.service-symbol { width: 22px; height: 22px; }
+.service-symbol::before, .service-symbol::after { top: 10px; height: 2px; }
+.service-answer { padding-bottom: 26px; padding-right: 20px; }
+.service-answer p:first-child { font-size: 18px; }
+.service-practical p { font-size: 16px; max-width: 32ch; }
+.service-call { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+/* Match the other signature marks; keep a clear gap below the whole label. */
+.ribbon-action::after { height: 2px; transform: rotate(-1deg) scaleX(.5); }
+.ribbon-action:focus-visible::after { transform: rotate(-1deg) scaleX(1); }
+.ribbon-action svg { width: 25px; }
+.visit-stage { min-height: calc(100svh - 275px); }
+.hours small { font-size: 14px; }
+.visit-social { font-size: 16px; }
+.visit-social a { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; padding-block: 10px; }
+.social-link { min-width: 44px; justify-content: center; }
+.visit-contact { margin-bottom: 22px; }
+.phone-action { display: inline-flex; align-items: center; min-height: 50px; padding-block: 4px 10px; position: relative; transition: color 240ms ease; }
+.phone-label { display: block; font-size: 14px; margin-bottom: 4px; }
+.phone-number { display: flex; align-items: center; gap: 14px; font: 700 clamp(25px,2.7vw,38px)/1.1 Archivo,Arial,sans-serif; letter-spacing: -.04em; white-space: nowrap; }
+.phone-number svg { width: 24px; height: 24px; transition: transform 380ms var(--ease-out); }
+.phone-action::after { content: ''; position: absolute; bottom: 1px; left: 0; right: 0; height: 2px; background: currentColor; transform: scaleX(.15); transform-origin: left; transition: transform 380ms var(--ease-out); }
+.phone-action:focus-visible::after { transform: scaleX(1); }
+.footer-phone { font-size: 16px; white-space: nowrap; }
+.address-art svg { max-width: 100%; }
+@media (hover:hover) and (pointer:fine) {
+  .mini-brand:hover { transform: rotate(-3deg); }
+  .destination:hover .destination-title { transform: translateX(9px); }
+
+  .service summary:hover > span:first-child { transform: translateX(8px); }
+  .service summary:hover { color: var(--hover-ink); }
+  .service summary:hover > span:first-child::after { opacity: 1; transform: rotate(-1deg) scaleX(1); }
+  .ink-link:hover,.page-nav a:hover,.footer-home:hover,.visit-social a:hover,.phone-action:hover { color: var(--hover-ink); }
+  .route-action:hover { color: var(--blue); }
+  .prestations-page .ribbon-action:hover { color: var(--hover-ink); }
+  .phone-action:hover::after { transform: scaleX(1); }
+  .phone-action:hover svg { transform: rotate(-12deg) translateY(-2px); }
+  .video-link:hover svg { transform: translateX(3px); }
+  .ribbon-action:hover::after { transform: rotate(-1deg) scaleX(1); }
+  .ribbon-action:hover svg { transform: translateY(-3px); }
+  .film-toolbar button:hover span { transform: rotate(90deg); }
+}
+/* Identical, non-interactive colour fade on every destination. No snapshots. */
+:root.page-arriving::after {
+  content: ''; position: fixed; inset: 0; z-index: 1000;
+  background: var(--arrival-paper,var(--silver)); pointer-events: none;
+  animation: signature-paper-arrive 380ms cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes signature-paper-arrive { from { opacity: 1; } to { opacity: 0; } }
+.video-link svg { transition: transform 320ms var(--ease-out); }
+
+@media(min-width:1600px) {
+  .brand-mark { width: 500px; }
+  .entrance,.service-stage,.visit-stage { width: 100%; max-width: 2040px; }
+  .site-header,.site-footer { width: 100%; max-width: 2040px; margin-inline: auto; }
+}
+@media(max-width:1100px) {
+  .header-end { min-width: 75px; }
+}
+@media(max-width:760px) {
+  :root { --pad: 24px; }
+  .site-header { min-height: 96px; padding-block: 12px; }
+  .site-header:has(.mini-brand) { flex-wrap: nowrap; gap: 16px; }
+  .site-header:has(.mini-brand) .header-end { display: none; }
+  .index-page .header-end { min-width: 0; }
+  .index-page .header-end > .ink-link { display: inline-flex; font-size: 12px; }
+  .mini-brand { width: 76px; }
+  .page-nav { gap: clamp(10px,3vw,24px); margin: 0 0 0 auto; }
+  .page-nav a { font-size: 13px; padding-inline: 0; }
+  .entrance { min-height: 0; gap: 20px; padding-top: 2px; padding-bottom: 24px; }
+  .brand-mark { width: min(65vw,290px); }
+  .brand-location { font-size: 12px; }
+  .brand-rays { width: 85%; }
+  .destination-menu { padding: 6px 0; gap: 15px; }
+  .destination { padding: 10px 0 24px; }
+  .destination-title { font-size: clamp(40px,10vw,66px); }
+  .destination-detail { font-size: 15px; margin-top: 10px; }
+  .signature-ribbon { padding-block: 12px; margin-top: 18px; }
+  .ribbon-track b { font-size: 16px; }
+  .ribbon-track > span { gap: 20px; padding-right: 20px; }
+  .site-footer { padding-block: 14px 24px; gap: 2px 22px; }
+  .site-footer .footer-home { flex: 1 1 calc(100% - 95px); }
+  .site-footer .video-link { margin-top: 0; font-size: 14px; }
+  .site-footer .footer-phone { order: 3; flex: 1 1 100%; font-size: 15px; }
+  .site-footer .footer-phone::after { right: auto; width: 120px; }
+
+  .service-stage, .visit-stage { min-height: 0; }
+  .service-preface h1 { font-size: clamp(72px,21vw,100px); }
+  .service-preface p { font-size: 16px; }
+  .service summary { font-size: clamp(33px,10vw,44px); min-height: 80px; }
+  .service-answer { padding-right: 8px; font-size: 15px; }
+  .service-practical { padding-top: 14px; }
+  .ribbon-action { font-size: 28px; gap: 20px; }
+  .visit-info h1 { font-size: clamp(47px,13vw,62px); }
+}
+@media(max-width:360px) {
+  :root { --pad: 18px; }
+  .mini-brand { width: 66px; }
+  .page-nav { gap: 9px; }
+  .page-nav a { font-size: 12px; }
+
+  .ribbon-action { font-size: 25px; }
+}
+@media print {
+  @page { margin: 15mm; }
+  html[style] { background: #fff !important; }
+  :root,body,.prestations-page { background: #fff; color: #000; }
+  .signature-ribbon,.film-dialog,.site-header,.site-footer,.skip-link,.address-art,.brand-rays,
+  .page-arriving::after { display: none; }
+  *,*::before,*::after { animation: none !important; transition: none !important; }
+  main [style] { transform: none !important; opacity: 1 !important; visibility: visible !important; }
+  main { display: block !important; min-height: 0 !important; padding: 0 !important; }
+  .visit-info { max-width: none; break-inside: avoid; }
+  .visit-info h1 { font-size: 28pt; line-height: 1.15; margin-bottom: 18pt; }
+  .visit-info address,.hours,.visit-contact,.visit-social { font-size: 12pt; line-height: 1.5; margin-block: 12pt; color: #000; }
+  .visit-info .hours strong,.visit-info .phone-number { font-size: 18pt; color: #000; }
+  .hours small,.phone-label { font-size: 10pt; }
+  .route-action { font-size: 12pt; min-height: 0; margin-block: 14pt; }
+  .phone-action svg,.route-action svg,.phone-number::before,.phone-number::after,.ribbon-action::after { display: none; }
+  .service-answer { color: #000; }
+  a { text-decoration: underline; }
+}

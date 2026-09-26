@@ -1,0 +1,43 @@
+/* Bounded decor; controls and legend remain in the actual viewport. */
+.film-dialog {
+  --hover-ink: #ffe32c;
+  position: fixed; inset: 0; margin: 0; border: 0; box-shadow: none;
+  width: 100%; height: 100dvh; max-width: none; max-height: none;
+  padding: max(12px,env(safe-area-inset-top)) clamp(16px,4vw,64px) max(14px,env(safe-area-inset-bottom));
+  background: #202022; color: #fff; overflow: auto; isolation: isolate;
+}
+.film-dialog[open] { display: grid; grid-template-rows: auto minmax(0,1fr) auto; gap: 12px; }
+.film-dialog::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; contain: paint;
+  background: linear-gradient(#12131780,#121317a0),url('assets/salon-hero-960.webp') center/cover;
+  filter: blur(20px); clip-path: inset(0); pointer-events: none;
+}
+.film-dialog::backdrop { background: #202022; }
+.film-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; background: #202022; }
+.film-toolbar h2 { font: 700 clamp(16px,1.5vw,21px)/1.3 Archivo,Arial,sans-serif; letter-spacing: -.02em; }
+.film-toolbar button { min-height: 48px; min-width: 86px; gap: 12px; justify-content: space-between; flex-shrink: 0; }
+.film-toolbar button span { font-size: 28px; transition: transform 180ms var(--ease-out); }
+.film-stage { min-width: 0; min-height: 0; display: grid; place-items: center; container-type: size; }
+.film-screen { position: relative; width: min(100%,calc(100cqh * 9 / 16)); aspect-ratio: 9/16; container: film-portrait / inline-size; }
+.film-dialog video { display: block; width: 100%; height: 100%; object-fit: contain; background: transparent; }
+.film-finish { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: end; align-items: start; gap: 14px; padding: clamp(20px,4vw,40px); background: linear-gradient(#20202220,#202022 72%),url('assets/salon-hero-960.webp') center/cover; }
+.film-finish[hidden] { display: none; }
+.film-finish p { font: 700 clamp(22px,3vw,36px)/1.1 Archivo,Arial,sans-serif; max-width: 9ch; }
+.film-finish .ink-link { min-height: 48px; font-size: 16px; gap: 12px; color: #fff; padding-inline: 0; }
+.film-finish button span { font-size: 26px; }
+/* A landscape viewport leaves a narrow portrait: keep its replay label intact. */
+@container film-portrait (max-width: 190px) {
+  .film-finish { padding: 12px; gap: 10px; }
+  .film-finish p { font-size: 20px; line-height: 1.2; max-width: none; }
+  .film-finish .ink-link { font-size: 14px; line-height: 1.4; white-space: nowrap; gap: 0; }
+  .film-finish button span { display: none; }
+}
+.film-screen.is-ended video { visibility: hidden; }
+@supports not (height: 1cqh) { .film-screen { height: 100%; width: auto; max-width: 100%; } }
+.film-description { text-align: center; font-size: 14px; line-height: 1.4; }
+.film-description br { display: none; }
+.film-status { text-align: center; font-size: 14px; line-height: 1.5; }
+.film-status a { text-decoration: underline; }
+.film-dialog:has(.film-status:not([hidden])) { grid-template-rows: auto minmax(0,1fr) auto auto; }
+@media(max-width:600px) { .film-toolbar { gap: 16px; } .film-toolbar button { min-width: 75px; font-size: 14px; } }
+@media(max-height:350px) { .film-description { display: none; } .film-dialog[open] { grid-template-rows: auto minmax(80px,1fr); } }
